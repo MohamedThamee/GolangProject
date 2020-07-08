@@ -31,9 +31,11 @@ func main() {
 	books = append(books, Book{ID: "1", Isbn: "789", Title: "asdf", Author: &Author{Firstname: "Thamee", Secondname: "Muthari"}})
 	books = append(books, Book{ID: "2", Isbn: "789", Title: "asdf", Author: &Author{Firstname: "Sdfgf", Secondname: "asfgf"}})
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
-	r.HandleFunc("/api/books/{id}", getBookID).Methods("GET")
+	r.HandleFunc("/api/{id}", getLocationRes).Methods("GET")
 
+	log.Println("Server is ready to handle requests at", 5000)
 	log.Fatal(http.ListenAndServe(":5000", r))
+
 }
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
@@ -57,7 +59,7 @@ var bodyString1 NeededArr
 var bodyString2 NeededArr
 var bodyString3 NeededArr
 
-func getBookID(w http.ResponseWriter, r *http.Request) {
+func getLocationRes(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r) // Get params
 	// for _, item := range books {
