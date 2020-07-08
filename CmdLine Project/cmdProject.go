@@ -162,7 +162,7 @@ func SendLoc(lat string, long string) {
 		for i := range eat.Results.Items[0:3] {
 			fmt.Printf("     %s Restaurant is %d mts away from your location\n", eat.Results.Items[i].Title, eat.Results.Items[i].Distance)
 		}
-		//fmt.print(eat.Results.Items[0].Title)
+
 		//fmt.Println(eat.Results.Items[0].Distance)
 		//fmt.Println(eat.Results.Items[0].Title)
 		//fmt.Printf("API Response as struct %+v\n", todoStruct)
